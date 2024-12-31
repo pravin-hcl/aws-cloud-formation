@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Creating EC2 instance using AWS CloudFormation Template'
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      InstanceType: t2.micro
+      ImageId: ami-003f5a76758516d1e
+      KeyName: ansible-keypair
+      SecurityGroups:
+        - default
+      Tags:
+        - Key: department
+          Value: dev
+        - Key: Name         # Name of the EC2 instance
+          Value: EC2Instance # Value of the Name tag
+  
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: dec-31-bucket-2024
+      
+      VersioningConfiguration:
+        Status: Enabled
+
+      Tags:
+        - Key: department
+          Value: dev
+        - Key: Name
+          Value: dec-31-bucket-2024
