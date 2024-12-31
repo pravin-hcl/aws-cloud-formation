@@ -43,3 +43,5 @@ Resources:
         - Key: Name
           Value: dec-31-bucket-2024
 ```
+
+- Check the `ec2_template.yml` file for the complete script.
